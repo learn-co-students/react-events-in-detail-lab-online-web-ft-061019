@@ -4,13 +4,13 @@ import React, { Component } from 'react';
 export default class CoordinatesButton extends Component {
     
 
-    onClick(event) {
+    onClick = (event) => {
         let coor = []
         let x = event.clientX;
         let y = event.clientY;
-        coor << (x, y)
-
-        return onReceiveCoordinates(coor)
+        coor.push(x, y)
+        //debugger;
+        this.props.onReceiveCoordinates(coor)
     }
 
    
@@ -19,7 +19,7 @@ export default class CoordinatesButton extends Component {
 
     render() {
         return(
-            <button onClick={this.props.onReceiveCoordinates}></button>
+            <button onClick={this.onClick}></button>
         )
     }
 }
